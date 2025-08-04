@@ -1,0 +1,75 @@
+.post-card {
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  background: #fff;
+  padding: 0 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.post-image-container {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #e3e7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0b0b0;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 12px 0 6px 0;
+  color: #222;
+}
+
+.post-excerpt {
+  color: #555;
+  font-size: 0.98rem;
+  margin-bottom: 10px;
+}
+
+.post-level {
+  font-size: 0.9rem;
+  color: #4a90e2;
+  margin-top: 8px;
+}
+
+mat-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[mat-stroked-button] {
+  border-radius: 16px;
+  font-weight: 500;
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+

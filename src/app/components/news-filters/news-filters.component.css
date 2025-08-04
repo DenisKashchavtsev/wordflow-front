@@ -1,0 +1,14 @@
+.filters-block {
+  background: #f9f9fb;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.filter-field {
+  width: 100%;
+}
+
+

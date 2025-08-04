@@ -1,0 +1,17 @@
+.pagination-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0 0 0;
+}
+.page-info {
+  font-size: 1.1rem;
+  color: #333;
+}
+button[mat-icon-button] {
+  border-radius: 50%;
+  background: #f3f6fa;
+}
+
+

@@ -1,0 +1,14 @@
+<div class="filters-block">
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Level</mat-label>
+    <mat-select (selectionChange)="onLevelChange('')">
+      <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Category</mat-label>
+    <mat-select (selectionChange)="onCategoryChange('')">
+      <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

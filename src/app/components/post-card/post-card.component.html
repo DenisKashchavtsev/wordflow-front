@@ -1,0 +1,32 @@
+<a *ngIf="post?.slug" [routerLink]="['/blog', post.slug]" class="post-link">
+  <mat-card class="post-card">
+    <div class="post-image-container">
+      @if (post?.imageUrl && post.imageUrl !== '') {
+        <img [src]="post.imageUrl" [alt]="post.title" class="post-image">
+      } @else {
+        <div class="post-image-placeholder">Image</div>
+      }
+    </div>
+    <mat-card-content>
+      <div class="post-level">Level: {{post?.level}}</div>
+      <h3 class="post-title">{{post?.title}}</h3>
+      <p class="post-excerpt">{{post?.excerpt}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="btn--primary" color="primary">Read More</button>
+    </mat-card-actions>
+  </mat-card>
+</a>
+<mat-card *ngIf="!post?.slug" class="post-card">
+  <div class="post-image-container">
+    <div class="post-image-placeholder">Image</div>
+  </div>
+  <mat-card-content>
+    <div class="post-level">Level: {{post?.level}}</div>
+    <h3 class="post-title">{{post?.title}}</h3>
+    <p class="post-excerpt">{{post?.excerpt}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="btn--primary" color="primary">Read More</button>
+  </mat-card-actions>
+</mat-card>

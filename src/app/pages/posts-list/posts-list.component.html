@@ -1,0 +1,85 @@
+<app-header></app-header>
+<main>
+  <section class="posts-list-section">
+    <div class="posts-list-container">
+      <div class="posts-header">
+        <h1 class="page-title">All Posts</h1>
+        <p class="page-description">Browse all our English learning articles and resources</p>
+      </div>
+
+      <div class="filters-section">
+        <div class="search-filter">
+          <mat-form-field appearance="outline" class="search-input">
+            <mat-label>Search posts</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange($event)" placeholder="Type to search...">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="filter-controls">
+          <mat-form-field appearance="outline" class="filter-select">
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
+              <mat-option value="">All Categories</mat-option>
+              <mat-option value="Vocabulary">Vocabulary</mat-option>
+              <mat-option value="Grammar">Grammar</mat-option>
+              <mat-option value="Business">Business</mat-option>
+              <mat-option value="Travel">Travel</mat-option>
+              <mat-option value="IT">IT</mat-option>
+              <mat-option value="Medical">Medical</mat-option>
+              <mat-option value="Academic">Academic</mat-option>
+              <mat-option value="Conversation">Conversation</mat-option>
+              <mat-option value="Kids">Kids</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="filter-select">
+            <mat-label>Level</mat-label>
+            <mat-select [(value)]="selectedLevel" (selectionChange)="onLevelChange($event.value)">
+              <mat-option value="">All Levels</mat-option>
+              <mat-option value="A1_A2">A1-A2 (Beginner)</mat-option>
+              <mat-option value="B1_B2">B1-B2 (Intermediate)</mat-option>
+              <mat-option value="C1_C2">C1-C2 (Advanced)</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      @if (loading) {
+        <div class="loading-section">
+          <p>Loading posts...</p>
+        </div>
+      } @else if (error) {
+        <div class="error-section">
+          <h3>Error loading posts</h3>
+          <p>Failed to load posts. Please try again later.</p>
+          <button mat-raised-button color="primary" (click)="loadPosts()">Retry</button>
+        </div>
+      } @else {
+        @if (posts.length > 0) {
+          <div class="posts-grid">
+            @for (post of posts; track post.id) {
+              <app-post-card [post]="post"></app-post-card>
+            }
+          </div>
+
+          @if (totalPages > 1) {
+            <div class="pagination-section">
+              <app-pagination [totalPages]="totalPages" [currentPage]="page" (pageChange)="onPageChange($event)"></app-pagination>
+            </div>
+          }
+        } @else {
+          <div class="no-posts-section">
+            <h3>No posts found</h3>
+            <p>Try adjusting your search criteria or filters.</p>
+          </div>
+        }
+      }
+    </div>
+  </section>
+
+  <section class="subscribe-section">
+    <app-subscribe></app-subscribe>
+  </section>
+</main>
+<app-footer></app-footer> 

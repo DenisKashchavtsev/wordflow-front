@@ -1,0 +1,75 @@
+/* Текст и обводка цвета #555, скругление углов */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #555;
+  border-radius: 8px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-color: #555;
+}
+
+.mat-input-element {
+  color: #555;
+  border-radius: 8px;
+}
+
+.subscribe-block {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.subscribe-block p {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 24px;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn--primary {
+  border-radius: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.success-message {
+  background: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.success-message p {
+  color: #2e7d32;
+  margin: 0;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.error-message p {
+  color: #c62828;
+  margin: 0;
+  font-size: 0.9rem;
+}

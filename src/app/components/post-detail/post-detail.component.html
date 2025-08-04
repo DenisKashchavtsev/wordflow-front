@@ -1,0 +1,13 @@
+<div class="post-detail-block">
+  <h1 class="post-title">{{post?.title}}</h1>
+  <div class="post-level">Level: {{post?.level}}</div>
+  <div class="post-image-container">
+    @if (post?.imageUrl && post.imageUrl !== '') {
+      <img [src]="post.imageUrl" [alt]="post.title" class="post-image">
+    } @else {
+      <div class="post-image-placeholder">Image</div>
+    }
+  </div>
+  <div class="post-content" [innerHTML]="content"></div>
+  <div class="post-original-link">Link to source: {{post?.link}}</div>
+</div>
