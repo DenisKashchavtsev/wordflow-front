@@ -1,5 +1,5 @@
-<h2 class="latest-news-title">Latest News</h2>
-<div class="news-grid">
+<h2 class="page-title">Latest News</h2>
+<div class="grid grid-3 news-grid">
   @for (post of displayPosts; track post) {
     <app-post-card [post]="post"></app-post-card>
   }
