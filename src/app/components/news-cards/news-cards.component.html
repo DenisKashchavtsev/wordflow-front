@@ -1,4 +1,4 @@
-<h2 class="page-title">{{ getTranslation('posts.latest') }}</h2>
+<h2 class="page-title">{{ 'posts.latest' | translate }}</h2>
 <div class="grid grid-3 news-grid">
   @for (post of displayPosts; track post) {
     <app-post-card [post]="post"></app-post-card>

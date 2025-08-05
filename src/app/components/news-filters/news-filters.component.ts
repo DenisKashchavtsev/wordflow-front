@@ -5,6 +5,7 @@ import {MatOption, MatSelect} from '@angular/material/select';
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-news-filters',
@@ -12,7 +13,8 @@ import { BaseTranslationComponent } from '../../shared/base-translation.componen
     MatFormField,
     MatLabel,
     MatSelect,
-    MatOption
+    MatOption,
+    TranslationPipe
   ],
   templateUrl: './news-filters.component.html',
   styleUrl: './news-filters.component.css'

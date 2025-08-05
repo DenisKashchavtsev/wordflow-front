@@ -8,20 +8,20 @@
       <a mat-button routerLink="/about">{{ 'header.about' | translate }}</a>
     </nav>
     <span class="spacer"></span>
-    
+
     <!-- Language Switcher -->
     <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-switcher">
-      <span class="language-flag">{{ getCurrentLanguageInfo()?.flag }}</span>
+      <span class="language-flag">{{ getCurrentLanguageInfo()?.short }}</span>
     </button>
     <mat-menu #languageMenu="matMenu">
-      <button mat-menu-item *ngFor="let language of languages" 
+      <button mat-menu-item *ngFor="let language of languages"
               (click)="setLanguage(language.code)"
               [class.active]="language.code === currentLanguage">
-        <span class="language-flag">{{ language.flag }}</span>
+        <span class="language-flag">{{ language.short }}</span>
         <span class="language-name">{{ language.name }}</span>
       </button>
     </mat-menu>
-    
+
     <button mat-raised-button class="btn--text">{{ 'header.login' | translate }}</button>
     <button mat-raised-button class="btn--primary">{{ 'header.signup' | translate }}</button>
   </mat-toolbar>

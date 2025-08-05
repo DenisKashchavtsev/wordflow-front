@@ -13,6 +13,7 @@ import { PostsService, Post, PostsResponse, PostsFilters } from '../../services/
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-posts-list',
@@ -27,7 +28,8 @@ import { BaseTranslationComponent } from '../../shared/base-translation.componen
     MatSelect,
     MatOption,
     MatIcon,
-    MatButton
+    MatButton,
+    TranslationPipe
   ],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css'

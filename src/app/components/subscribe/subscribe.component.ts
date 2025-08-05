@@ -7,6 +7,7 @@ import { SubscribeService, SubscribeRequest } from '../../services/subscribe.ser
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-subscribe',
@@ -16,7 +17,8 @@ import { BaseTranslationComponent } from '../../shared/base-translation.componen
     MatLabel,
     MatButton,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TranslationPipe
   ],
   templateUrl: './subscribe.component.html',
   styleUrl: './subscribe.component.css'

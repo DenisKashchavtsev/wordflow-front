@@ -1,12 +1,12 @@
 <div class="filters-block">
   <mat-form-field appearance="outline" class="filter-field">
-    <mat-label>{{ getTranslation('filters.level') }}</mat-label>
+    <mat-label>{{ 'filters.level' | translate }}</mat-label>
     <mat-select (selectionChange)="onLevelChange('')">
       <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="outline" class="filter-field">
-    <mat-label>{{ getTranslation('filters.category') }}</mat-label>
+    <mat-label>{{ 'filters.category' | translate }}</mat-label>
     <mat-select (selectionChange)="onCategoryChange('')">
       <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
     </mat-select>

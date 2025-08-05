@@ -3,11 +3,13 @@ import {MatIcon} from '@angular/material/icon';
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-pagination',
   imports: [
-    MatIcon
+    MatIcon,
+    TranslationPipe
   ],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css'

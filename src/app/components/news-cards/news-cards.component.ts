@@ -5,11 +5,13 @@ import { Post } from '../../services/posts.service';
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-news-cards',
   imports: [
     PostCardComponent,
+    TranslationPipe
   ],
   templateUrl: './news-cards.component.html',
   styleUrl: './news-cards.component.css'

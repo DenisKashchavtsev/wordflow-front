@@ -2,11 +2,12 @@
   <div class="footer-content">
     <span class="logo">WordFlow</span>
     <nav>
-      <a routerLink="/">{{ getTranslation('header.home') }}</a>
-      <a routerLink="/posts">{{ getTranslation('header.posts') }}</a>
+      <a mat-button routerLink="/">{{ 'header.home' | translate }}</a>
+      <a mat-button routerLink="/posts">{{ 'header.posts' | translate }}</a>
+      <a mat-button routerLink="/about">{{ 'header.about' | translate }}</a>
     </nav>
     <div class="contacts">
-      <span>{{ getTranslation('footer.copyright') }}</span>
+      <span>{{ 'footer.copyright' | translate }}</span>
     </div>
   </div>
 </footer>

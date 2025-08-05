@@ -2,7 +2,7 @@
   <button mat-icon-button [disabled]="currentPage === 1" (click)="prevPage()">
     <mat-icon>chevron_left</mat-icon>
   </button>
-  <span class="page-info">{{ getTranslation('pagination.page') }} {{currentPage}} {{ getTranslation('pagination.of') }} {{totalPages}}</span>
+  <span class="page-info">{{ 'pagination.page' | translate }} {{currentPage}} {{ 'pagination.of' | translate }} {{totalPages}}</span>
   <button mat-icon-button [disabled]="currentPage === totalPages" (click)="nextPage()">
     <mat-icon>chevron_right</mat-icon>
   </button>

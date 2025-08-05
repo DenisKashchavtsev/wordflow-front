@@ -5,6 +5,7 @@ import {RouterLink} from '@angular/router';
 import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
+import { TranslationPipe } from '../../shared/translation.pipe';
 
 @Component({
   selector: 'app-post-card',
@@ -13,7 +14,8 @@ import { BaseTranslationComponent } from '../../shared/base-translation.componen
     MatCardContent,
     MatCard,
     NgIf,
-    RouterLink
+    RouterLink,
+    TranslationPipe
   ],
   templateUrl: './post-card.component.html',
   styleUrl: './post-card.component.css'

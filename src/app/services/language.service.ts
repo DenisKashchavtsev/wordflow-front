@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export interface Language {
   code: string;
   name: string;
-  flag: string;
+  short: string;
 }
 
 @Injectable({
@@ -16,9 +16,9 @@ export class LanguageService {
   public currentLanguage$ = this.currentLanguageSubject.asObservable();
 
   public readonly languages: Language[] = [
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
-    { code: 'en', name: 'English', flag: '🇺🇸' }
+    { code: 'ru', name: 'Східний суржик', short: 'Ру' },
+    { code: 'uk', name: 'Українська', short: 'Укр' },
+    { code: 'en', name: 'English', short: 'Eng' }
   ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -59,4 +59,4 @@ export class LanguageService {
   getLanguageByCode(code: string): Language | undefined {
     return this.languages.find(lang => lang.code === code);
   }
-} 
+}
