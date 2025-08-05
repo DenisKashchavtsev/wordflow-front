@@ -39,19 +39,52 @@ button.btn--primary {
   font-size: var(--mat-button-protected-label-text-size, var(--mat-sys-label-large-size));
   letter-spacing: var(--mat-button-protected-label-text-tracking, var(--mat-sys-label-large-tracking));
   text-transform: var(--mat-button-protected-label-text-transform);
+  min-width: unset;
+  min-height: 52px;
 }
 button.btn--primary:hover {
-  color: #ffffff;
-  background-size: 220% 220%;
-  background-position: right center;
+color: #ffffff;
+background-size: 220% 220%;
+background-position: right center;
 }
 
 .btn--text {
-  border: none;
-  background: transparent;
+border: none;
+background: transparent;
 }
 
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.cdk-overlay-pane {
+background-color: white;
+}
+
+.mat-mdc-select-trigger, .mat-mdc-form-field-flex {
+padding: 0 10px;
+}
+
+.mdc-floating-label {
+padding: 0 5px;
+}
+
+.post-detail-block .detail-block {
+background: #fff;
+border-radius: 20px;
+box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+padding: 32px 24px;
+margin-bottom: 32px;
+}
+.post-detail-function-block, .detail-function-block {
+background: #fff;
+border-radius: 20px;
+box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+padding: 32px 24px;
+}
+main {
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 16px;
 }

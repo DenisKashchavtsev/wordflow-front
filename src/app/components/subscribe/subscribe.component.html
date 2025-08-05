@@ -1,6 +1,6 @@
 <div class="subscribe-block">
   <p>Подпишитесь на обновления и получайте лучшие статьи!</p>
-  
+
   @if (success) {
     <div class="success-message">
       <p>Спасибо за подписку! Мы будем отправлять вам лучшие статьи.</p>
@@ -11,22 +11,22 @@
         <mat-label>Email</mat-label>
         <input matInput [(ngModel)]="email" name="email" type="email" required>
       </mat-form-field>
-      
+
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Имя (необязательно)</mat-label>
         <input matInput [(ngModel)]="name" name="name">
       </mat-form-field>
-      
+
       @if (error) {
         <div class="error-message">
           <p>{{ error }}</p>
         </div>
       }
-      
-      <button 
-        mat-raised-button 
-        color="primary" 
-        type="submit" 
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
         [disabled]="loading"
         class="btn--primary">
         @if (loading) {

@@ -8,15 +8,14 @@
       </div>
 
       <div class="filters-section">
-        <div class="search-filter">
+
+        <div class="filter-controls">
           <mat-form-field appearance="outline" class="search-input">
             <mat-label>Search posts</mat-label>
             <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange($event)" placeholder="Type to search...">
             <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
-        </div>
 
-        <div class="filter-controls">
           <mat-form-field appearance="outline" class="filter-select">
             <mat-label>Category</mat-label>
             <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
@@ -82,4 +81,4 @@
     <app-subscribe></app-subscribe>
   </section>
 </main>
-<app-footer></app-footer> 
+<app-footer></app-footer>
