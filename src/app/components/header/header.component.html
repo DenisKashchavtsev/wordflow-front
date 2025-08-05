@@ -3,12 +3,26 @@
     <span class="logo">WordFlow</span>
     <span class="spacer"></span>
     <nav>
-      <a mat-button routerLink="/">Home</a>
-      <a mat-button routerLink="/posts">All Posts</a>
-      <a mat-button routerLink="/about">About</a>
+      <a mat-button routerLink="/">{{ getTranslation('header.home') }}</a>
+      <a mat-button routerLink="/posts">{{ getTranslation('header.posts') }}</a>
+      <a mat-button routerLink="/about">{{ getTranslation('header.about') }}</a>
     </nav>
     <span class="spacer"></span>
-    <button mat-raised-button class="btn--text">Login</button>
-    <button mat-raised-button class="btn--primary">Sign Up</button>
+    
+    <!-- Language Switcher -->
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-switcher">
+      <span class="language-flag">{{ getCurrentLanguageInfo()?.flag }}</span>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      <button mat-menu-item *ngFor="let language of languages" 
+              (click)="setLanguage(language.code)"
+              [class.active]="language.code === currentLanguage">
+        <span class="language-flag">{{ language.flag }}</span>
+        <span class="language-name">{{ language.name }}</span>
+      </button>
+    </mat-menu>
+    
+    <button mat-raised-button class="btn--text">{{ getTranslation('header.login') }}</button>
+    <button mat-raised-button class="btn--primary">{{ getTranslation('header.signup') }}</button>
   </mat-toolbar>
 </div>

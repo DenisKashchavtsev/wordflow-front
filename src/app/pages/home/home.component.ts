@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { SubscribeComponent } from '../../components/subscribe/subscribe.component';
 import { NewsCardsComponent } from '../../components/news-cards/news-cards.component';
 import { HeroComponent } from '../../components/hero/hero.component';
-import { HeaderComponent } from '../../components/header/header.component';
 import { PostsService, Post } from '../../services/posts.service';
+import {FooterComponent} from '../../components/footer/footer.component';
+import {HeaderComponent} from '../../components/header/header.component';
 
 @Component({
   selector: 'app-home',
   imports: [
-    FooterComponent,
     SubscribeComponent,
     NewsCardsComponent,
     HeroComponent,
+    FooterComponent,
     HeaderComponent
   ],
   templateUrl: './home.component.html',

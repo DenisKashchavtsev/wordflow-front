@@ -2,7 +2,9 @@
   <div class="container">
     <div class="hero-block">
       <div class="hero-text">
-        <h1>WordFlow адаптирует контент под ваш уровень — от A1 до C2.</h1>
+        <h1>{{ getTranslation('hero.title') }}</h1>
+        <p>{{ getTranslation('hero.subtitle') }}</p>
+        <button class="cta-button">{{ getTranslation('hero.cta') }}</button>
       </div>
       <div class="hero-image">
         <img src="/assets/images/hero-illustration.png" alt="Hero illustration">

@@ -2,11 +2,11 @@
   <div class="footer-content">
     <span class="logo">WordFlow</span>
     <nav>
-      <a routerLink="/">Home</a>
-      <a routerLink="/blog">Blog</a>
+      <a routerLink="/">{{ getTranslation('header.home') }}</a>
+      <a routerLink="/posts">{{ getTranslation('header.posts') }}</a>
     </nav>
     <div class="contacts">
-      <span>Email: info@wordflow.com</span>
+      <span>{{ getTranslation('footer.copyright') }}</span>
     </div>
   </div>
 </footer>

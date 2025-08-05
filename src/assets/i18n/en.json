@@ -1,0 +1,37 @@
+{
+  "header": {
+    "home": "Home",
+    "posts": "All Posts",
+    "about": "About",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "title": "Welcome to WordFlow",
+    "subtitle": "Platform for creating and sharing content",
+    "cta": "Get Started"
+  },
+  "footer": {
+    "copyright": "© 2024 WordFlow. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "subscribe": {
+    "title": "Subscribe to updates",
+    "subtitle": "Get the latest news and articles",
+    "placeholder": "Your email",
+    "button": "Subscribe"
+  },
+  "posts": {
+    "latest": "Latest Posts",
+    "readMore": "Read More",
+    "noPosts": "No posts found"
+  }
+} 
