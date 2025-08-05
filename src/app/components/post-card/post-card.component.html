@@ -4,29 +4,29 @@
       @if (post?.imageUrl && post.imageUrl !== '') {
         <img [src]="post.imageUrl" [alt]="post.title" class="image">
       } @else {
-        <div class="image-placeholder">Image</div>
+        <div class="image-placeholder">{{ getTranslation('posts.image') }}</div>
       }
     </div>
     <mat-card-content>
-      <div class="text-level">Level: {{post?.level}}</div>
+      <div class="text-level">{{ getTranslation('posts.level') }}: {{post?.level}}</div>
       <h3 class="text-title">{{post?.title}}</h3>
       <p class="text-excerpt">{{post?.excerpt}}</p>
     </mat-card-content>
     <mat-card-actions class="card-actions">
-      <button class="btn--primary" color="primary">Read More</button>
+      <button class="btn--primary" color="primary">{{ getTranslation('posts.readMore') }}</button>
     </mat-card-actions>
   </mat-card>
 </a>
 <mat-card *ngIf="!post?.slug" class="card post-card">
   <div class="image-container">
-    <div class="image-placeholder">Image</div>
+    <div class="image-placeholder">{{ getTranslation('posts.image') }}</div>
   </div>
   <mat-card-content>
-    <div class="text-level">Level: {{post?.level}}</div>
+    <div class="text-level">{{ getTranslation('posts.level') }}: {{post?.level}}</div>
     <h3 class="text-title">{{post?.title}}</h3>
     <p class="text-excerpt">{{post?.excerpt}}</p>
   </mat-card-content>
   <mat-card-actions class="card-actions">
-    <button class="btn--primary" color="primary">Read More</button>
+    <button class="btn--primary" color="primary">{{ getTranslation('posts.readMore') }}</button>
   </mat-card-actions>
 </mat-card>

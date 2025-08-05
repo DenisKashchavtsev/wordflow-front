@@ -2,6 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import {NgForOf} from '@angular/common';
 import {MatFormField, MatLabel} from '@angular/material/input';
 import {MatOption, MatSelect} from '@angular/material/select';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-news-filters',
@@ -14,13 +17,20 @@ import {MatOption, MatSelect} from '@angular/material/select';
   templateUrl: './news-filters.component.html',
   styleUrl: './news-filters.component.css'
 })
-export class NewsFiltersComponent {
+export class NewsFiltersComponent extends BaseTranslationComponent {
   levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   categories = ['All', 'Vocabulary', 'Grammar', 'Business', 'Travel', 'IT', 'Kids', 'Academic', 'Conversation'];
 
   @Output() filtersChange = new EventEmitter<{level: string, category: string}>();
   selectedLevel = '';
   selectedCategory = '';
+
+  constructor(
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 
   onLevelChange(level: string) {
     this.selectedLevel = level;

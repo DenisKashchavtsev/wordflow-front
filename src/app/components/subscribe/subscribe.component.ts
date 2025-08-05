@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { MatError, MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { SubscribeService, SubscribeRequest } from '../../services/subscribe.service';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-subscribe',
@@ -11,23 +15,30 @@ import { SubscribeService, SubscribeRequest } from '../../services/subscribe.ser
     MatInput,
     MatLabel,
     MatButton,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './subscribe.component.html',
   styleUrl: './subscribe.component.css'
 })
-export class SubscribeComponent {
+export class SubscribeComponent extends BaseTranslationComponent {
   email = '';
   name = '';
   loading = false;
   success = false;
   error = '';
 
-  constructor(private subscribeService: SubscribeService) {}
+  constructor(
+    private subscribeService: SubscribeService,
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 
   onSubmit() {
     if (!this.email) {
-      this.error = 'Please enter your email address';
+      this.error = this.getTranslation('subscribe.emailRequired');
       return;
     }
 
@@ -47,13 +58,13 @@ export class SubscribeComponent {
           this.email = '';
           this.name = '';
         } else {
-          this.error = response.message || 'Subscription failed. Please try again.';
+          this.error = response.message || this.getTranslation('subscribe.failed');
         }
       },
       error: (error) => {
         this.loading = false;
         console.error('Subscription error:', error);
-        this.error = 'Failed to subscribe. Please try again later.';
+        this.error = this.getTranslation('subscribe.error');
       }
     });
   }

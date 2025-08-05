@@ -6,20 +6,19 @@ import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
-import { HeaderComponent } from '../../components/header/header.component';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { SubscribeComponent } from '../../components/subscribe/subscribe.component';
 import { PostsService, Post, PostsResponse, PostsFilters } from '../../services/posts.service';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-posts-list',
   imports: [
-    HeaderComponent,
     PostCardComponent,
     PaginationComponent,
-    FooterComponent,
     SubscribeComponent,
     FormsModule,
     MatFormField,
@@ -33,7 +32,7 @@ import { PostsService, Post, PostsResponse, PostsFilters } from '../../services/
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css'
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent extends BaseTranslationComponent implements OnInit {
   posts: Post[] = [];
   page = 1;
   totalPages = 1;
@@ -47,10 +46,15 @@ export class PostsListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
-    private postsService: PostsService
-  ) {}
+    private postsService: PostsService,
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 
-  ngOnInit() {
+  override ngOnInit() {
+    super.ngOnInit();
     this.route.queryParams.subscribe(params => {
       this.page = +params['page'] || 1;
       this.searchQuery = params['search'] || '';

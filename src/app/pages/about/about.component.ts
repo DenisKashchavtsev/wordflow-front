@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-about',
-  imports: [
-    HeaderComponent,
-    FooterComponent
-  ],
+  imports: [],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export class AboutComponent extends BaseTranslationComponent {
+  constructor(
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 } 

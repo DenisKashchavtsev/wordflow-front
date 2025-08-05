@@ -1,19 +1,19 @@
 <div class="subscribe-block">
-  <p>Подпишитесь на обновления и получайте лучшие статьи!</p>
+  <p>{{ getTranslation('subscribe.title') }}</p>
 
   @if (success) {
     <div class="success-message">
-      <p>Спасибо за подписку! Мы будем отправлять вам лучшие статьи.</p>
+      <p>{{ getTranslation('subscribe.success') }}</p>
     </div>
   } @else {
     <form class="subscribe-form" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email</mat-label>
+        <mat-label>{{ getTranslation('subscribe.email') }}</mat-label>
         <input matInput [(ngModel)]="email" name="email" type="email" required>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Имя (необязательно)</mat-label>
+        <mat-label>{{ getTranslation('subscribe.name') }}</mat-label>
         <input matInput [(ngModel)]="name" name="name">
       </mat-form-field>
 
@@ -30,9 +30,9 @@
         [disabled]="loading"
         class="btn--primary">
         @if (loading) {
-          Подписка...
+          {{ getTranslation('subscribe.loading') }}
         } @else {
-          Подписаться
+          {{ getTranslation('subscribe.button') }}
         }
       </button>
     </form>

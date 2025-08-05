@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-post-detail',
@@ -6,7 +9,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.css'
 })
-export class PostDetailComponent {
+export class PostDetailComponent extends BaseTranslationComponent {
   @Input() post: any;
   @Input() content: string = '';
+
+  constructor(
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
-import { HeaderComponent } from '../../components/header/header.component';
 import { PostDetailComponent } from '../../components/post-detail/post-detail.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
 import { SubscribeComponent } from '../../components/subscribe/subscribe.component';
 import { MatOption } from '@angular/material/core';
@@ -10,13 +8,14 @@ import { MatFormField, MatLabel } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { MatButton } from '@angular/material/button';
 import { PostsService, Post } from '../../services/posts.service';
+import { LanguageService } from '../../services/language.service';
+import { TranslationService } from '../../services/translation.service';
+import { BaseTranslationComponent } from '../../shared/base-translation.component';
 
 @Component({
   selector: 'app-post',
   imports: [
-    HeaderComponent,
     PostDetailComponent,
-    FooterComponent,
     PostCardComponent,
     SubscribeComponent,
     MatOption,
@@ -29,7 +28,7 @@ import { PostsService, Post } from '../../services/posts.service';
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
-export class PostComponent implements OnInit {
+export class PostComponent extends BaseTranslationComponent implements OnInit {
   post: Post | null = null;
   selectedLevel = 'B1_B2';
   levels = ['A1_A2', 'B1_B2', 'C1_C2'];
@@ -40,10 +39,15 @@ export class PostComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private postsService: PostsService
-  ) {}
+    private postsService: PostsService,
+    languageService: LanguageService,
+    translationService: TranslationService
+  ) {
+    super(languageService, translationService);
+  }
 
-  ngOnInit() {
+  override ngOnInit() {
+    super.ngOnInit();
     const slug = this.route.snapshot.paramMap.get('slug');
     if (slug) {
       this.loadPost(slug);

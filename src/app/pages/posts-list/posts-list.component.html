@@ -1,42 +1,41 @@
-<app-header></app-header>
 <main>
   <section class="section">
     <div class="content-block">
-      <h1 class="page-title">All Posts</h1>
-      <p class="page-subtitle">Discover articles tailored to your English level</p>
+      <h1 class="page-title">{{ getTranslation('posts.allPosts') }}</h1>
+      <p class="page-subtitle">{{ getTranslation('posts.allPostsSubtitle') }}</p>
 
       <div class="search-filters">
 
         <div class="filters-row">
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Search posts...</mat-label>
-            <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange($any($event.target).value)" placeholder="Search by title or content">
+            <mat-label>{{ getTranslation('posts.searchPosts') }}</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (input)="onSearchChange($any($event.target).value)" [placeholder]="getTranslation('posts.searchPlaceholder')">
             <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Category</mat-label>
+            <mat-label>{{ getTranslation('filters.category') }}</mat-label>
             <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
-              <mat-option value="">All Categories</mat-option>
-              <mat-option value="Vocabulary">Vocabulary</mat-option>
-              <mat-option value="Grammar">Grammar</mat-option>
-              <mat-option value="Business">Business</mat-option>
-              <mat-option value="Travel">Travel</mat-option>
-              <mat-option value="IT">IT</mat-option>
-              <mat-option value="Medical">Medical</mat-option>
-              <mat-option value="Academic">Academic</mat-option>
-              <mat-option value="Conversation">Conversation</mat-option>
-              <mat-option value="Kids">Kids</mat-option>
+              <mat-option value="">{{ getTranslation('categories.allCategories') }}</mat-option>
+              <mat-option value="Vocabulary">{{ getTranslation('categories.vocabulary') }}</mat-option>
+              <mat-option value="Grammar">{{ getTranslation('categories.grammar') }}</mat-option>
+              <mat-option value="Business">{{ getTranslation('categories.business') }}</mat-option>
+              <mat-option value="Travel">{{ getTranslation('categories.travel') }}</mat-option>
+              <mat-option value="IT">{{ getTranslation('categories.it') }}</mat-option>
+              <mat-option value="Medical">{{ getTranslation('categories.medical') }}</mat-option>
+              <mat-option value="Academic">{{ getTranslation('categories.academic') }}</mat-option>
+              <mat-option value="Conversation">{{ getTranslation('categories.conversation') }}</mat-option>
+              <mat-option value="Kids">{{ getTranslation('categories.kids') }}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Level</mat-label>
+            <mat-label>{{ getTranslation('filters.level') }}</mat-label>
             <mat-select [(ngModel)]="selectedLevel" (selectionChange)="onLevelChange($event.value)">
-              <mat-option value="">All Levels</mat-option>
-              <mat-option value="A1_A2">A1-A2 (Beginner)</mat-option>
-              <mat-option value="B1_B2">B1-B2 (Intermediate)</mat-option>
-              <mat-option value="C1_C2">C1-C2 (Advanced)</mat-option>
+              <mat-option value="">{{ getTranslation('levels.allLevels') }}</mat-option>
+              <mat-option value="A1_A2">{{ getTranslation('levels.a1_a2') }}</mat-option>
+              <mat-option value="B1_B2">{{ getTranslation('levels.b1_b2') }}</mat-option>
+              <mat-option value="C1_C2">{{ getTranslation('levels.c1_c2') }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -44,16 +43,16 @@
 
       @if (loading) {
         <div class="loading">
-          <p>Loading posts...</p>
+          <p>{{ getTranslation('posts.loadingPosts') }}</p>
         </div>
       } @else if (error) {
         <div class="error">
-          <p>Error loading posts. Please try again.</p>
-          <button mat-raised-button color="primary" (click)="loadPosts()">Retry</button>
+          <p>{{ getTranslation('posts.errorLoadingPosts') }}</p>
+          <button mat-raised-button color="primary" (click)="loadPosts()">{{ getTranslation('common.retry') }}</button>
         </div>
       } @else if (posts.length === 0) {
         <div class="empty">
-          <p>No posts found matching your criteria.</p>
+          <p>{{ getTranslation('posts.noPostsFound') }}</p>
         </div>
       } @else {
         <div class="grid grid-3 posts-grid">
@@ -77,4 +76,3 @@
     <app-subscribe></app-subscribe>
   </section>
 </main>
-<app-footer></app-footer>

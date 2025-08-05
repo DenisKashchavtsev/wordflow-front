@@ -1,4 +1,3 @@
-<app-header></app-header>
 <main>
   <section class="section">
     <div class="post-main-container">
@@ -11,9 +10,9 @@
           <ng-template>
             <div class="content-block">
               <div class="error">
-                <h2>Post not found</h2>
-                <p>The article you are looking for does not exist or was removed.</p>
-                <button mat-raised-button color="primary" routerLink="/">Go to Home</button>
+                <h2>{{ getTranslation('post.notFound') }}</h2>
+                <p>{{ getTranslation('post.notFoundMessage') }}</p>
+                <button mat-raised-button color="primary" routerLink="/">{{ getTranslation('common.goHome') }}</button>
               </div>
             </div>
           </ng-template>
@@ -22,7 +21,7 @@
       <aside class="post-sidebar">
         <div class="post-detail-function-block">
           <mat-form-field appearance="outline" class="level-select">
-            <mat-label>Level</mat-label>
+            <mat-label>{{ getTranslation('post.level') }}</mat-label>
             <mat-select [value]="selectedLevel" (selectionChange)="onLevelChange($event.value)">
               @for (level of levels; track level) {
                 <mat-option [value]="level">{{ level }}</mat-option>
@@ -30,7 +29,7 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <h3 class="text-title">Latest News</h3>
+        <h3 class="text-title">{{ getTranslation('posts.latestNews') }}</h3>
         <div class="latest-news-list">
           @for (news of latestNews; track news) {
             <app-post-card [post]="news"></app-post-card>
@@ -43,4 +42,3 @@
     <app-subscribe></app-subscribe>
   </section>
 </main>
-<app-footer></app-footer>
