@@ -2,8 +2,8 @@
   <h1 class="post-title">{{post?.title}}</h1>
   <div class="post-level">{{ 'post.level' | translate }}: {{post?.level}}</div>
   <div class="post-image-container">
-    @if (post?.imageUrl && post.imageUrl !== '') {
-      <img [src]="post.imageUrl" [alt]="post.title" class="post-image">
+    @if (post?.image && post.image !== '') {
+      <img [src]="environment.fileUrl+post.image" [alt]="post.title" class="post-image">
     } @else {
       <div class="post-image-placeholder">{{ 'post.image' | translate }}</div>
     }

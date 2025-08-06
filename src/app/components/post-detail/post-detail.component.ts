@@ -3,6 +3,7 @@ import { LanguageService } from '../../services/language.service';
 import { TranslationService } from '../../services/translation.service';
 import { BaseTranslationComponent } from '../../shared/base-translation.component';
 import { TranslationPipe } from '../../shared/translation.pipe';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-post-detail',
@@ -20,4 +21,6 @@ export class PostDetailComponent extends BaseTranslationComponent {
   ) {
     super(languageService, translationService);
   }
+
+  protected readonly environment = environment;
 }

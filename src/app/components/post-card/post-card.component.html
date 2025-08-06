@@ -1,32 +1,18 @@
 <a *ngIf="post?.slug" [routerLink]="['/blog', post.slug]" class="post-link">
   <mat-card class="card post-card">
     <div class="image-container">
-      @if (post?.imageUrl && post.imageUrl !== '') {
-        <img [src]="post.imageUrl" [alt]="post.title" class="image">
+      @if (post?.image && post.image !== '') {
+        <img [src]="environment.fileUrl+post.image" [alt]="post.title" class="image">
       } @else {
         <div class="image-placeholder">{{ 'posts.image' | translate }}</div>
       }
     </div>
     <mat-card-content>
-      <div class="text-level">{{ 'posts.level' | translate }}: {{post?.level}}</div>
       <h3 class="text-title">{{post?.title}}</h3>
-      <p class="text-excerpt">{{post?.excerpt}}</p>
+      <p class="text-excerpt">{{ post?.content | truncateAndStripHtml:150 }}</p>
     </mat-card-content>
     <mat-card-actions class="card-actions">
       <button class="btn--primary" color="primary">{{ 'posts.readMore' | translate }}</button>
     </mat-card-actions>
   </mat-card>
 </a>
-<mat-card *ngIf="!post?.slug" class="card post-card">
-  <div class="image-container">
-    <div class="image-placeholder">{{ 'posts.image' | translate }}</div>
-  </div>
-  <mat-card-content>
-    <div class="text-level">{{ 'posts.level' | translate }}: {{post?.level}}</div>
-    <h3 class="text-title">{{post?.title}}</h3>
-    <p class="text-excerpt">{{post?.excerpt}}</p>
-  </mat-card-content>
-  <mat-card-actions class="card-actions">
-    <button class="btn--primary" color="primary">{{ 'posts.readMore' | translate }}</button>
-  </mat-card-actions>
-</mat-card>
