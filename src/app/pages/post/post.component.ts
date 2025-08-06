@@ -89,7 +89,7 @@ export class PostComponent extends BaseTranslationComponent implements OnInit {
   private loadLatestNews() {
     this.postsService.getLatestPosts(3).subscribe({
       next: (posts) => {
-        this.latestNews = posts;
+        this.latestNews = posts.posts;
       },
       error: (error) => {
         console.error('Error loading latest news:', error);
@@ -100,18 +100,18 @@ export class PostComponent extends BaseTranslationComponent implements OnInit {
 
   getContentByLevel(): string {
     if (!this.post?.content) return '';
-    
+
     // Если API возвращает контент для разных уровней
     if (typeof this.post.content === 'object') {
       return this.post.content[this.selectedLevel] || this.post.content['B1_B2'] || '';
     }
-    
+
     return this.post.content as string;
   }
 
   onLevelChange(level: string) {
     this.selectedLevel = level;
-    
+
     // Обновляем URL с новым уровнем
     this.router.navigate([], {
       queryParams: { level: level },

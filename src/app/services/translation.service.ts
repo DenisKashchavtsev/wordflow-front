@@ -16,40 +16,40 @@ export class TranslationService {
   ) {}
 
   loadTranslations(language: string): Observable<any> {
-    console.log(`Loading translations for language: ${language}`);
-    
+    // console.log(`Loading translations for language: ${language}`);
+
     // Если не браузер, возвращаем пустой объект
     if (!isPlatformBrowser(this.platformId)) {
-      console.log('Not in browser, returning empty translations');
+      // console.log('Not in browser, returning empty translations');
       return of({});
     }
 
     const url = `/assets/i18n/${language}.json`;
-    console.log(`Requesting translations from: ${url}`);
-    
+    // console.log(`Requesting translations from: ${url}`);
+
     return this.http.get(url).pipe(
       tap((translations: any) => {
-        console.log(`Successfully loaded translations for ${language}:`, translations);
+        // console.log(`Successfully loaded translations for ${language}:`, translations);
       }),
       map((translations: any) => {
         this.translations[language] = translations;
         return translations;
       }),
       catchError((error) => {
-        console.error(`Failed to load translations for ${language}:`, error);
-        console.log('Trying fallback to English translations...');
-        
+        // console.error(`Failed to load translations for ${language}:`, error);
+        // console.log('Trying fallback to English translations...');
+
         // Возвращаем английский как fallback
         return this.http.get('/assets/i18n/en.json').pipe(
           tap((fallbackTranslations: any) => {
-            console.log('Successfully loaded fallback translations:', fallbackTranslations);
+            // console.log('Successfully loaded fallback translations:', fallbackTranslations);
           }),
           map((fallbackTranslations: any) => {
             this.translations[language] = fallbackTranslations;
             return fallbackTranslations;
           }),
           catchError((fallbackError) => {
-            console.error('Failed to load fallback translations:', fallbackError);
+            // console.error('Failed to load fallback translations:', fallbackError);
             return of({});
           })
         );
@@ -60,9 +60,8 @@ export class TranslationService {
   getTranslation(key: string, language: string): string {
     const keys = key.split('.');
     let translation = this.translations[language];
-    
+
     if (!translation) {
-      console.warn(`No translations found for language: ${language}, key: ${key}`);
       return key;
     }
 
@@ -70,7 +69,7 @@ export class TranslationService {
       if (translation && translation[k] !== undefined) {
         translation = translation[k];
       } else {
-        console.warn(`Translation key not found: ${key} in language: ${language}`);
+        // console.warn(`Translation key not found: ${key} in language: ${language}`);
         return key;
       }
     }
@@ -81,4 +80,4 @@ export class TranslationService {
   getCurrentTranslations(language: string): any {
     return this.translations[language] || {};
   }
-} 
+}

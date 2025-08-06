@@ -7,7 +7,6 @@ export interface Post {
   id: number;
   slug: string;
   title: string;
-  excerpt: string;
   content: string | { [key: string]: string };
   image: string;
   level: string;
@@ -40,7 +39,7 @@ export class PostsService {
   // Получить все посты с фильтрацией и пагинацией
   getPosts(filters: PostsFilters = {}): Observable<PostsResponse> {
     let params = new HttpParams();
-    
+
     if (filters.level) {
       params = params.set('level', filters.level);
     }
@@ -67,8 +66,8 @@ export class PostsService {
   }
 
   // Получить последние посты
-  getLatestPosts(limit: number = 3): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/posts/latest`, {
+  getLatestPosts(limit: number = 3): Observable<PostsResponse> {
+    return this.http.get<PostsResponse>(`${this.apiUrl}/posts`, {
       params: { limit: limit.toString() }
     });
   }
@@ -96,4 +95,4 @@ export class PostsService {
   getLevels(): Observable<string[]> {
     return this.http.get<string[]>(`${this.apiUrl}/posts/levels`);
   }
-} 
+}

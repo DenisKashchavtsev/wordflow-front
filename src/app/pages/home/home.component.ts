@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   private loadLatestPosts() {
     this.postsService.getLatestPosts(6).subscribe({
       next: (posts) => {
-        this.latestPosts = posts;
+        this.latestPosts = posts.posts;
       },
       error: (error) => {
         console.error('Error loading latest posts:', error);
